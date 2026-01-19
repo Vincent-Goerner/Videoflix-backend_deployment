@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 
-from .serializers import RegistrationSerializer, LoginTokenObtainPairSerializer, PasswordResetSerializer, PasswordConfirmSerializer
+from .serializers import RegistrationSerializer, LoginTokenObtainPairSerializer, PasswordConfirmSerializer
 from auth_app.signals import user_registered, password_reset
 from .permissions import IsOwner
 
