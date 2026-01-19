@@ -1,0 +1,79 @@
+# 🐍 Python Bytecode & Cache
+
+*.py[cod]
+__pycache__/
+*.pyo
+*.pyd
+
+
+# 🔄 Django Migrations
+**/migrations/*
+!**/migrations/
+!**/migrations/__init__.py
+
+
+# 🧪 Testing & Coverage
+
+.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+junit*.xml
+coverage*.xml
+
+
+# 📦 Environment & Secrets
+
+.env
+.env.*
+*.env
+.envrc
+local_settings.py
+
+
+# 📁 Virtual Environments
+
+env/
+venv/
+ENV/
+
+
+# ⚙️ Django-related
+
+*.log
+logs/
+*.pot
+*.sqlite3
+staticfiles/
+media/
+static/
+videos/hls/
+nohup.out
+
+
+# 🧾 Reports & Docs
+
+tests_report/
+report.html
+htmlcov/
+_build/
+
+
+# 💻 IDEs & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.old
+.DS_Store
+
+
+# 🐇 Celery Worker File (optional, falls temporär erstellt)
+
+videoflix/celery.py
+
+
+# Others
+
+up.bat
