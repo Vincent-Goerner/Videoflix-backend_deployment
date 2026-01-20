@@ -141,7 +141,9 @@ class CookieTokenObtainPairView(TokenObtainPairView):
             value=str(access),
             httponly=True,
             secure=True,
-            samesite="Lax"
+            samesite="Lax",
+            path="/",
+            domain=".videoflix.vincentgoerner.com"
         )
 
         response.set_cookie(
@@ -149,7 +151,9 @@ class CookieTokenObtainPairView(TokenObtainPairView):
             value=str(refresh),
             httponly=True,
             secure=True,
-            samesite="Lax"
+            samesite="Lax",
+            path="/",
+            domain=".videoflix.vincentgoerner.com"
         )
 
         return response
@@ -200,6 +204,8 @@ class CookieTokenRefreshView(TokenRefreshView):
             httponly=True,
             secure=True,
             samesite="Lax",
+            path="/",
+            domain=".videoflix.vincentgoerner.com"
         )
 
         return response
@@ -210,19 +216,19 @@ class LogoutView(APIView):
     Log out the current user.
     Blacklists the refresh token and clears authentication cookies.
     """
-    permission_classes = [IsOwner]
 
     def post(self, request):
         """
         Invalidate refresh token and remove access/refresh cookies.
         """
-        try:
-            refresh_token = request.COOKIES.get("refresh_token")
-            if refresh_token:
+        refresh_token = request.COOKIES.get("refresh_token")
+
+        if refresh_token:
+            try:
                 token = RefreshToken(refresh_token)
                 token.blacklist()
-        except Exception as e:
-            print(f"Failed to move the token to the blacklist: {e}")
+            except Exception as e:
+                print(f"Failed to blacklist token: {e}")
 
         response = Response(
             {

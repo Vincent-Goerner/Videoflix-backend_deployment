@@ -9,7 +9,7 @@ from django.utils.encoding import force_bytes
 
 user_registered = Signal()
 password_reset = Signal()
-frontend_url = os.getenv("FRONTEND_URL", "http://127.0.0.1:5500")
+frontend_url = os.getenv("FRONTEND_URL", "https://videoflix.vincentgoerner.com")
 
 
 def send_email(subject, text, template, context, recipient):
