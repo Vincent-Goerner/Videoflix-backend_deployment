@@ -103,7 +103,6 @@ class ActivateAccountView(APIView):
         user.is_active = True
         user.save(update_fields=["is_active"])
 
-
 class CookieTokenObtainPairView(TokenObtainPairView):
     """
     Authenticate a user and issue JWT tokens via HTTP-only cookies.
